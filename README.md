@@ -1,2 +1,2 @@
 # mybatis
-springboot + mybtais + layui尝试分页效果
+springboot + mybatis + layui尝试分页
