@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>造数据平台</title>
+    <link rel="stylesheet" href="../../../static/css/layui.css">
+    <link rel="stylesheet" href="../../../static/css/modules/layer/default/layer.css">
+
+
+</head>
+<body>
+<blockquote class="layui-elem-quote layui-text">
+    造数据平台：店铺、员工、会员、商品、订单
+</blockquote>
+
+<ul class="layui-timeline">
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-timeline-axis"></i>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>店铺数据</legend>
+        </fieldset>
+        <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title">
+                <div class="layui-btn-container">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius inertStore" value="1">随机1条</button>
+                    <button type="button" class="layui-btn layui-btn-radius inertStore" value="10">随机10条</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius inertStore" value="100">随机100条</button>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius inertStore" value="1000">随机1000条</button>
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius" id="definedStore">自定义数据</button>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-timeline-axis"></i>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>员工数据</legend>
+        </fieldset>
+        <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title">
+                <div class="layui-btn-container">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">随机1条</button>
+                    <button type="button" class="layui-btn layui-btn-radius">随机10条</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">随机100条</button>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius">随机1000条</button>
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius" id="definedStaff">自定义数据</button>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-timeline-axis"></i>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>会员数据</legend>
+        </fieldset>
+        <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title">
+                <div class="layui-btn-container">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">随机1条</button>
+                    <button type="button" class="layui-btn layui-btn-radius">随机10条</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">随机100条</button>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius">随机1000条</button>
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">自定义数据</button>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-timeline-axis"></i>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>商品数据</legend>
+        </fieldset>
+        <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title">
+                <div class="layui-btn-container">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">随机1条</button>
+                    <button type="button" class="layui-btn layui-btn-radius">随机10条</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">随机100条</button>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius">随机1000条</button>
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">自定义数据</button>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-timeline-axis"></i>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>订单数据</legend>
+        </fieldset>
+        <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title">
+                <div class="layui-btn-container">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">随机1条</button>
+                    <button type="button" class="layui-btn layui-btn-radius">随机10条</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">随机100条</button>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius">随机1000条</button>
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">自定义数据</button>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>待定数据</legend>
+        </fieldset>
+        <div class="layui-timeline-content layui-text">
+            <div class="layui-timeline-title">
+                <div class="layui-btn-container">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">随机1条</button>
+                    <button type="button" class="layui-btn layui-btn-radius">随机10条</button>
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">随机100条</button>
+                    <button type="button" class="layui-btn layui-btn-warm layui-btn-radius">随机1000条</button>
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">自定义数据</button>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+<script src="../../../static/js/jquery-3.3.1.js"></script>
+<script src="../../../static/js/layui.js"></script>
+<script src="../../../static/js/layer.js"></script>
+<script src="../../../static/js/store/store.js"></script>
+<script src="../../../static/js/staff/staff.js"></script>
+</body>
+</html>

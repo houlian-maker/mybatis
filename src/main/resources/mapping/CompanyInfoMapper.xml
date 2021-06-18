@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CompanyInfoMapper">
+    <resultMap id="companyInfoMap" type="com.entity.CompanyInfo">
+        <id column="sys_company_id" property="companyId"/>
+        <result column="company_code" jdbcType="VARCHAR" property="companyCode" />
+        <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+        <result column="responsible_person" jdbcType="VARCHAR" property="responsiblePerson" />
+        <result column="computer_info" jdbcType="VARCHAR" property="computerInfo" />
+        <result column="database_info" jdbcType="VARCHAR" property="databaseInfo" />
+        <result column="special_info" jdbcType="VARCHAR" property="specialInfo" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="valid" jdbcType="INTEGER" property="valid" />
+        <result column="create_date"  property="createDate" />
+        <result column="modified_date"  property="modifiedDate" />
+    </resultMap>
+
+    <!-- 分页查询企业列表 -->
+    <select id="findCompany" resultMap="companyInfoMap">
+        select sys_company_id,company_code,company_name,responsible_person,computer_info,database_info,special_info,status,valid,remark,create_date,modified_date
+        from company_table
+        <where>
+            <if test="companyName != null and companyName != &quot;&quot;">
+              and   company_name like CONCAT(CONCAT('%',#{companyName}),'%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="addCompanyInfo" parameterType="com.entity.CompanyInfo">
+        INSERT INTO company_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="companyCode != null">
+                company_code,
+            </if>
+            <if test="companyName != null">
+                company_name,
+            </if>
+            <if test="responsiblePerson != null">
+                responsible_person,
+            </if>
+            <if test="computerInfo != null">
+                computer_info,
+            </if>
+            <if test="databaseInfo != null">
+                database_info,
+            </if>
+            <if test="specialInfo != null">
+                special_info,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifiedDate != null">
+                modified_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="companyCode != null" >
+                #{companyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null" >
+                #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="responsiblePerson != null" >
+                #{responsiblePerson,jdbcType=VARCHAR},
+            </if>
+            <if test="computerInfo != null" >
+                #{computerInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="databaseInfo != null" >
+                #{databaseInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="specialInfo != null" >
+                #{specialInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null" >
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedDate != null">
+                #{modifiedDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

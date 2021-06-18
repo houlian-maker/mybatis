@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.WebsiteMapper">
+    <resultMap id="websiteMap" type="com.entity.Website">
+        <id column="sys_net_id" property="netId"/>
+        <result column="website_name" jdbcType="VARCHAR" property="websiteName" />
+        <result column="website_account" jdbcType="VARCHAR" property="websiteAccount" />
+        <result column="website_password" jdbcType="VARCHAR" property="websitePassword" />
+        <result column="website_type" jdbcType="VARCHAR" property="websiteType" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="valid" jdbcType="INTEGER" property="valid" />
+        <result column="create_date"  property="createDate" />
+        <result column="modified_date"  property="modifiedDate" />
+    </resultMap>
+
+    <select id="findAllWebsite" resultMap="websiteMap">
+        select sys_net_id,website_name,website_account,website_password,website_type,status,remark,valid,create_date,modified_date from t_sys_website
+    </select>
+
+    <insert id="insertWebsiteOne" parameterType="com.entity.Website">
+        insert into t_sys_website
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="websiteName != null">
+                website_name,
+            </if>
+            <if test="websiteAccount != null">
+                website_account,
+            </if>
+            <if test="websitePassword != null">
+                website_password,
+            </if>
+            <if test="websiteType != null">
+                website_type,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifiedDate != null">
+                modified_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="websiteName != null" >
+                #{websiteName,jdbcType=VARCHAR},
+            </if>
+            <if test="websiteAccount != null" >
+                #{websiteAccount,jdbcType=VARCHAR},
+            </if>
+            <if test="websitePassword != null" >
+                #{websitePassword,jdbcType=VARCHAR},
+            </if>
+            <if test="websiteType != null" >
+                #{websiteType,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null" >
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null" >
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedDate != null" >
+                #{modifiedDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+
+ <update id="editWebsite" parameterType="com.entity.Website">
+    update t_sys_website
+    <set>
+        <if test="websiteName != null">
+            website_name = #{websiteName},
+        </if>
+        <if test="websiteAccount != null">
+            website_account = #{websiteAccount},
+        </if>
+        <if test="websitePassword != null">
+            website_password = #{websitePassword},
+        </if>
+        <if test="websiteType != null">
+            website_type = #{websiteType},
+        </if>
+        <if test="remark != null">
+            remark = #{remark},
+        </if>
+        <if test="createDate != null">
+            create_date = #{createDate},
+        </if>
+        <if test="modifiedDate != null">
+            modified_date = #{modifiedDate},
+        </if>
+    </set>
+    where sys_net_id = #{netId}
+ </update>
+</mapper>

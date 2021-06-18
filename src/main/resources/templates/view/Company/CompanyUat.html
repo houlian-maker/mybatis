@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>企业列表</title>
+    <link rel="stylesheet" href="../static/css/layui.css">
+    <link rel="stylesheet" href="../static/css/modules/layer/default/layer.css">
+
+</head>
+<body>
+<div>
+    <blockquote class="layui-elem-quote">
+        <span type="button" class="layui-btn" id="add">添加企业</span>
+    </blockquote>
+</div>
+<table class="layui-table">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>企业编号</th>
+        <th>企业名称</th>
+        <th>负责人</th>
+        <th>创建日期</th>
+        <th>修改日期</th>
+        <th>状态</th>
+        <th>备注</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list,stat : ${companyList}">
+        <td th:text="${stat.count}"></td>
+        <td th:text="${list.getCompany_code()}"></td>
+        <td th:text="${list.getCompany_name()}"></td>
+        <td th:text="${list.getResponsible_person()}"></td>
+        <td th:text="${#dates.format(list.getCreate_date(), 'yyyy-MM-dd HH:MM:SS')}"></td>
+        <td th:text="${#dates.format(list.getModified_date(), 'yyyy-MM-dd HH:MM:SS')}"></td>
+        <td th:switch="${list.getStatus()}">
+            <span th:case="1">正常</span>
+            <span th:case="0">异常</span>
+        </td>
+        <td th:text="${list.getRemark()}"></td>
+        <td>
+            <button type="button" class="layui-btn layui-btn-warm layui-btn-sm">编辑</button>
+            <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">查看</button>
+        </td>
+    </tr>
+    <script src="../static/js/jquery-3.3.1.js"></script>
+    <script src="../static/js/layui.js"></script>
+    <script src="../static/js/layer.js"></script>
+    <script src="../static/js/Company/Uat.js"></script>
+    </tbody>
+</table>
+</body>
+</html>

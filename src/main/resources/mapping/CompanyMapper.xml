@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CompanyMapper">
+
+    <select id="findAll" resultType="company">
+        select * from t_sys_company
+    </select>
+    
+    <insert id="addCompany" parameterType="com.entity.Company">
+        insert into t_sys_company
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="company_code != null">
+                company_code,
+            </if>
+            <if test="company_name != null">
+                company_name,
+            </if>
+            <if test="responsible_person != null">
+                responsible_person,
+            </if>
+            <if test="computer_ip != null">
+                computer_ip,
+            </if>
+            <if test="computer_account != null">
+                computer_account,
+            </if>
+            <if test="computer_password != null">
+                computer_password,
+            </if>
+            <if test="database_ip != null">
+                database_ip,
+            </if>
+            <if test="database_type != null">
+                database_type,
+            </if>
+            <if test="database_port != null">
+                database_port,
+            </if>
+            <if test="database_instance != null">
+                database_instance,
+            </if>
+            <if test="database_account != null">
+                database_account,
+            </if>
+            <if test="database_password != null">
+                database_password,
+            </if>
+            <if test="vpn_ip != null">
+                vpn_ip,
+            </if>
+            <if test="vpn_count != null">
+                vpn_count,
+            </if>
+            <if test="vpn_password != null">
+                vpn_password,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="create_date != null">
+                create_date,
+            </if>
+            <if test="modified_date != null">
+                modified_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="company_code != null" >
+                #{company_code,jdbcType=VARCHAR},
+            </if>
+            <if test="company_name != null" >
+                #{company_name,jdbcType=VARCHAR},
+            </if>
+            <if test="responsible_person != null" >
+                #{responsible_person,jdbcType=VARCHAR},
+            </if>
+            <if test="computer_ip != null" >
+                #{computer_ip,jdbcType=VARCHAR},
+            </if>
+            <if test="computer_account != null" >
+                #{computer_account,jdbcType=VARCHAR},
+            </if>
+            <if test="computer_password != null" >
+                #{computer_password,jdbcType=VARCHAR},
+            </if>
+            <if test="database_ip != null" >
+                #{database_ip,jdbcType=VARCHAR},
+            </if>
+            <if test="database_type != null" >
+                #{database_type,jdbcType=VARCHAR},
+            </if>
+            <if test="database_port != null" >
+                #{database_port,jdbcType=VARCHAR},
+            </if>
+            <if test="database_instance != null" >
+                #{database_instance,jdbcType=VARCHAR},
+            </if>
+            <if test="database_account != null" >
+                #{database_account,jdbcType=VARCHAR},
+            </if>
+            <if test="database_password != null" >
+                #{database_password,jdbcType=VARCHAR},
+            </if>
+            <if test="vpn_ip != null" >
+                #{vpn_ip,jdbcType=VARCHAR},
+            </if>
+            <if test="vpn_count != null" >
+                #{vpn_count,jdbcType=VARCHAR},
+            </if>
+            <if test="vpn_password != null" >
+                #{vpn_password,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null" >
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="create_date != null">
+                #{create_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modified_date != null">
+                #{modified_date,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

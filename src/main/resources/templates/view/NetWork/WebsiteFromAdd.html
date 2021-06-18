@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../static/css/layui.css">
+    <link rel="stylesheet" href="../../../static/css/modules/layer/default/layer.css">
+</head>
+<body>
+<fieldset class="layui-elem-field">
+    <legend></legend>
+    <div class="layui-field-box">
+        <form class="layui-form layui-form-pane" action="" id="addWebsiteFrom">
+            <div class="layui-form-item">
+                <input name="netId" type = "hidden">
+                <hr class="layui-border-red">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">网址</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="websiteName" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">类型</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="websiteType" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <hr class="layui-border-orange">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">账号</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="websiteAccount" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="websitePassword" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <hr class="layui-border-green">
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-block">
+                        <textarea name="remark" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</fieldset>
+<script src="../../../static/js/jquery-3.3.1.js"></script>
+<script src="../../../static/js/layui.js"></script>
+<script src="../../../static/js/layer.js"></script>
+</body>
+</html>

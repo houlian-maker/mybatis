@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.StoreMapper">
+
+    <resultMap id="storeMap" type="com.entity.Store">
+        <id column="sys_store_id" property="id"/>
+        <result column="sys_store_online_code" jdbcType="VARCHAR" property="storeOnlineCode" />
+        <result column="sys_store_offline_code" jdbcType="VARCHAR" property="storeOfflineCode" />
+        <result column="store_id" jdbcType="VARCHAR" property="storeId" />
+        <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+        <result column="store_phone" jdbcType="VARCHAR" property="storePhone" />
+        <result column="store_type" jdbcType="INTEGER" property="storeType" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="valid" jdbcType="INTEGER" property="valid" />
+        <result column="create_date"  property="createDate" />
+        <result column="modified_date"  property="modifiedDate" />
+    </resultMap>
+
+    <select id="findStoreTen" resultMap="storeMap">
+        select sys_store_id,sys_store_online_code,sys_store_offline_code,store_id,store_name,store_phone,store_type,status,remark,valid from t_sys_store limit 10
+    </select>
+
+    <insert id="InertOneStore" parameterType="com.entity.Store">
+        insert into t_sys_store(sys_store_online_code,sys_store_offline_code,store_id,store_name,store_phone,store_type,status,remark,valid,create_date,modified_date)values(
+                            #{storeOnlineCode},
+                            #{storeOfflineCode},
+                            #{storeId},
+                            #{storeName},
+                            #{storePhone},
+                            #{storeType},
+                            #{status},
+                            #{remark},
+                            #{valid},
+                            #{createDate},
+                            #{modifiedDate})
+    </insert>
+
+    <insert id="insertTenStore" parameterType="java.util.List">
+        INSERT INTO
+        t_sys_store(sys_store_online_code,sys_store_offline_code,store_id,store_name,store_phone,store_type,status,remark,valid,create_date,modified_date)
+        VALUES
+        <foreach collection="list" item="store" index="index" separator=",">
+            (
+            #{store.storeOnlineCode},
+            #{store.storeOfflineCode},
+            #{store.storeId},
+            #{store.storeName},
+            #{store.storePhone},
+            #{store.storeType},
+            #{store.status},
+            #{store.remark},
+            #{store.valid},
+            #{store.createDate},
+            #{store.modifiedDate}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

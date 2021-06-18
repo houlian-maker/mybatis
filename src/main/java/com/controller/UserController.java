@@ -1,0 +1,21 @@
+package com.controller;
+
+import com.service.Impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/testBoot")
+public class UserController {
+
+    @Autowired
+    private UserServiceImpl userService;
+
+    @RequestMapping("getUser/{id}")
+    public String GetUser(@PathVariable int id){
+       // return "你好";
+         return userService.Sel(id).toString();
+    }
+}
